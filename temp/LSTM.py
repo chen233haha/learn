@@ -11,7 +11,7 @@ import tensorflow as tf
 def network_model(inputs, num_pitch, weights_file=None):
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.LSTM(
-        512,  # LSTM 层神经元的数目是 512，也是 LSTM 层输出的维度
+        256,  # LSTM 层神经元的数目是 512，也是 LSTM 层输出的维度
         input_shape=(inputs.shape[1], inputs.shape[2]),  # 输入的形状，对第一个 LSTM 层必须设置
         # return_sequences：控制返回类型
         # - True：返回所有的输出序列
@@ -20,7 +20,7 @@ def network_model(inputs, num_pitch, weights_file=None):
         return_sequences=True  # 返回所有的输出序列（Sequences）
     ))
     model.add(tf.keras.layers.Dropout(0.3))  # 丢弃 30% 神经元，防止过拟合
-    model.add(tf.keras.layers.LSTM(512, return_sequences=True))
+    model.add(tf.keras.layers.LSTM(256, return_sequences=True))
     model.add(tf.keras.layers.Dropout(0.3))
     model.add(tf.keras.layers.LSTM(512))  # return_sequences 是默认的 False，只返回输出序列的最后一个
     model.add(tf.keras.layers.Dense(256))  # 256 个神经元的全连接层

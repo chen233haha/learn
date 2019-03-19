@@ -1,0 +1,11 @@
+使用LSTM模型生成音乐
+
+运行环境：linnux
+
+需要安装的软件:ffmpeg(sudo apt install ffmpeg) timidity(sudo apt install timidity)
+
+需要安装的库：tensorflow keras music21 h5py
+
+需要在根目录创建一个music_midi文件里面储存mid的音乐文件用来训练模型。
+
+将network.py ulit.py作为自定义库导入，先进行训练，将最后的得到的参数文件改为best-weights.hdf5，再运行智能生成音乐文件即可。
