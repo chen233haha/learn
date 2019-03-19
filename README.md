@@ -1,5 +1,5 @@
 # learn
-LSTM
+
 使用LSTM模型生成音乐
 
 运行环境：linnux
